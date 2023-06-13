@@ -47,7 +47,7 @@ services:
       - ./backend/static/:/var/www/backend/static/
       - ./backend/media/:/var/www/backend/media/
     ports:
-      - "5000:80"
+      - "5051:80"
     depends_on:
       backend:
         condition: service_started
