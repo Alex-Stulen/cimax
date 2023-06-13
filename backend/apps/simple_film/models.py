@@ -81,7 +81,7 @@ class Film(models.Model):
 
     class Meta:
         ordering = ('-created_at', )
-        
+
     def delete(self, using=None, keep_parents=False):
         if os.path.exists(self.film.path):
             try:
