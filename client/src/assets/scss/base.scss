@@ -1,0 +1,37 @@
+@import './colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+    user-select: none;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    width: 100%;
+    background: url('../images/bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.wrapper{
+    width: 100%;
+}
+
+.section__container {
+    background-color: rgba($color: $dark, $alpha: .4);
+}
+
+// @import './inputs.scss';

@@ -1,0 +1,71 @@
+version: "3"
+
+services:
+  db:
+    env_file:
+      - ./backend/.env
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  backend:
+    env_file:
+      - ./backend/.env
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/:/web/cimax/backend/
+      - ./backend/static/:/web/cimax/backend/static/
+      - ./backend/media/:/web/cimax/backend/media/
+    depends_on:
+      db:
+        condition: service_started
+
+  client:
+    env_file:
+      - ./client/.env
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./client/:/web/cimax/client/
+      - node_modules:/web/cimax/client/node_modules
+    ports:
+      - "5173:5173"
+
+  backend_nginx:
+    image: nginx:1.23.4-alpine
+    environment:
+      - SERVER_DOMAIN=localhost
+    volumes:
+      - ./backend/deploy/nginx/cimax_backend.conf:/etc/nginx/conf.d/cimax_backend.conf
+      - ./backend/static/:/var/www/backend/static/
+      - ./backend/media/:/var/www/backend/media/
+    ports:
+      - "5000:80"
+    depends_on:
+      backend:
+        condition: service_started
+
+  client_nginx:
+    image: nginx:1.23.4-alpine
+    environment:
+      - CLIENT_DOMAIN=localhost
+    volumes:
+      - ./client/deploy/nginx/cimax_client.conf:/etc/nginx/conf.d/cimax_client.conf
+      - ./client/dist/:/var/www/client/
+    ports:
+      - "3000:80"
+    depends_on:
+      client:
+        condition: service_started
+
+volumes:
+  postgres_data:
+  node_modules:
+  client:

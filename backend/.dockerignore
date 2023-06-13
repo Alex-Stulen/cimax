@@ -1,0 +1,5 @@
+./idea/
+./venv/
+./media/
+./static/
+./Dockerfile
