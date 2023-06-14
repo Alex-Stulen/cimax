@@ -38,6 +38,7 @@ ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(' ')
 CSRF_TRUSTED_ORIGINS = os.environ['CSRF_TRUSTED_ORIGINS'].split(' ')
 
 CORS_ALLOWED_ORIGINS = os.environ['CORS_ALLOWED_ORIGINS'].split(' ')
+CORS_ALLOWED_STATIC_ORIGINS = CORS_ALLOWED_ORIGINS
 CORS_ALLOW_ALL_ORIGINS = DEBUG
 
 PROJECT_NAME = 'backend'
@@ -72,6 +73,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "corsheaders.middleware.CorsPostCsrfMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
