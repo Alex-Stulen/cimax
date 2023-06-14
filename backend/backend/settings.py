@@ -33,11 +33,39 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG'] == 'True'
 
-ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(' ')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    'server.cimax.space',
+    'www.server.cimax.space',
+    'cimax.space',
+    'www.cimax.space',
+]
 
-CSRF_TRUSTED_ORIGINS = os.environ['CSRF_TRUSTED_ORIGINS'].split(' ')
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://0.0.0.0:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://0.0.0.0:3000",
+    "http://localhost:5051",
+    "http://127.0.0.1:5051",
+    "http://0.0.0.0:5051",
 
-CORS_ALLOWED_ORIGINS = os.environ['CORS_ALLOWED_ORIGINS'].split(' ')
+    "https://server.cimax.space",
+    "https://www.server.cimax.space",
+    "http://server.cimax.space",
+    "http://www.server.cimax.space",
+
+    "https://cimax.space",
+    "https://www.cimax.space",
+    "http://cimax.space",
+    "http://www.cimax.space",
+]
+
+CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS
 CORS_ALLOWED_STATIC_ORIGINS = CORS_ALLOWED_ORIGINS
 CORS_ALLOW_ALL_ORIGINS = DEBUG
 
