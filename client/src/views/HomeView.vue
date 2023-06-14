@@ -1,5 +1,6 @@
 <script setup>
 import Header from '../components/layouts/Header.vue';
+import Footer from '../components/layouts/Footer.vue';
 import FilmPosterList from '../components/films/FilmPosterList.vue';
 </script>
 
@@ -9,6 +10,9 @@ import FilmPosterList from '../components/films/FilmPosterList.vue';
       <section class="section__films mt-5">
         <FilmPosterList></FilmPosterList>
       </section>
+      <div class="container">
+        <Footer></Footer>
+      </div>
   </main>
 </template>
 
@@ -16,7 +20,7 @@ import FilmPosterList from '../components/films/FilmPosterList.vue';
 
 export default {
   components: {
-    Header, FilmPosterList
+    Header, Footer, FilmPosterList
   }
 }
 </script>

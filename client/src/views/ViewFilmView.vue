@@ -1,5 +1,6 @@
 <script setup>
 import Header from '../components/layouts/Header.vue';
+import Footer from '../components/layouts/Footer.vue';
 import FilmView from '../components/films/FilmView.vue';
 import Loading from '../components/utils/Loading/Loading.vue';
 </script>
@@ -15,6 +16,9 @@ import Loading from '../components/utils/Loading/Loading.vue';
                 <FilmView :film="film"></FilmView>
             </div>
         </section>
+        <div class="container">
+            <Footer></Footer>
+        </div>
     </main>
 </template>
 
@@ -23,7 +27,7 @@ import { mapActions } from "vuex";
 
 export default {
     components: {
-        Header, FilmView, Loading
+        Header, Footer, FilmView, Loading
     },
     data() {
         return {
