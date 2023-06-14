@@ -97,6 +97,7 @@ PROJECT_APPS = [
 INSTALLED_APPS += PROJECT_APPS
 
 MIDDLEWARE = [
+    "utils.ip.middleware.RequestIpControlMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
@@ -257,3 +258,8 @@ if STORAGE_ENV == 'remote':
                 "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
             }
         }
+
+
+# Client IP Control
+CONTROL_IP_WITH_DEBUG_MODE = False  # allowed control ip logic with DEBUG=True
+ALLOWED_CLIENT_COUNTRIES = os.environ['ALLOWED_CLIENT_COUNTRIES'].split(' ')

@@ -4,7 +4,7 @@ export const DEBUG = import.meta.env.DEV;
 const env = import.meta.env;
 export let SERVER_HOST = env.VITE_SERVER_SCHEMA + '://' + env.VITE_SERVER_HOST
 
-if(DEBUG){
+if(import.meta.env.VITE_SERVER_URL_WITH_PORT === 'true'){
     SERVER_HOST = SERVER_HOST + ':' + env.VITE_SERVER_PORT
 }
 

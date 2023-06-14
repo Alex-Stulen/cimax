@@ -1,6 +1,5 @@
 <template>
     <div class="d-flex flex-column align-items-center p-4">
-        <div class="text-white h5 text-center">® All rights reserved {{ this.currentYear }}</div>
         <div class="text-white h5 mt-2 text-center">Email: <span class="email">cimax.space.contact@gmail.com</span></div>
     </div>
 </template>
@@ -20,6 +19,6 @@ export default {
 @import '../../assets/scss/colors.scss';
 
 .email{
-    color: rgba($color: #fccece, $alpha: 0.8);
+    color:bisque;
 }
 </style>
