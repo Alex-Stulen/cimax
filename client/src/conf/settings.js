@@ -2,7 +2,12 @@ export const DEBUG = import.meta.env.DEV;
 
 
 const env = import.meta.env;
-export const SERVER_HOST = env.VITE_SERVER_SCHEMA + '://' + env.VITE_SERVER_HOST + ':' + env.VITE_SERVER_PORT
+export let SERVER_HOST = env.VITE_SERVER_SCHEMA + '://' + env.VITE_SERVER_HOST
+
+if(DEBUG){
+    SERVER_HOST = SERVER_HOST + ':' + env.VITE_SERVER_PORT
+}
+
 const API_VERSION = 'v1'
 
 export function buildApiEndpoint(endpoint){
