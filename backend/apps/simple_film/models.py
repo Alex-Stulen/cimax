@@ -82,26 +82,5 @@ class Film(models.Model):
     class Meta:
         ordering = ('-created_at', )
 
-    def delete(self, using=None, keep_parents=False):
-        if os.path.exists(self.film.path):
-            try:
-                os.remove(self.film.path)
-            except:
-                pass
-        
-        if os.path.exists(self.film_trailer.path):
-            try:
-                os.remove(self.film_trailer.path)
-            except:
-                pass
-        
-        if os.path.exists(self.poster.path):
-            try:
-                os.remove(self.poster.path)
-            except:
-                pass
-        
-        return super().delete(using=None, keep_parents=False)
-
     def __str__(self):
         return self.name

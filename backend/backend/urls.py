@@ -33,5 +33,5 @@ urlpatterns = [
     path('api/', include('apps.api.urls', namespace='api')),
 ]
 
-if settings.DEBUG:
+if settings.DEBUG and settings.STORAGE_ENV == 'local':
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

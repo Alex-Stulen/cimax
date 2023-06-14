@@ -231,3 +231,29 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
     }
 }
+
+# Storage
+STORAGE_ENV = os.environ['STORAGE_ENV']  # 'local' or 'remote'
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+AWS_S3_SIGNATURE_VERSION = os.environ['AWS_S3_SIGNATURE_VERSION']
+AWS_S3_ADDRESSING_STYLE = os.environ['AWS_S3_ADDRESSING_STYLE']
+AWS_S3_FILE_OVERWRITE = False
+AWS_S3_VERIFY = True
+
+AWS_S3_ENDPOINT_URL = f'https://s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+
+if STORAGE_ENV == 'remote':
+    if AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY and AWS_STORAGE_BUCKET_NAME and AWS_S3_REGION_NAME:
+        # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+        STORAGES = {
+            "default": {
+                "BACKEND": "storages.backends.s3boto3.S3Boto3Storage"
+            },
+            "staticfiles": {
+                "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+            }
+        }
