@@ -8,7 +8,7 @@ import VideoPlayer from "../plugins/videoPlayer/VideoPlayer.vue";
         <div class="col-sm-12 col-md-4">
             <img :src="film.poster" class="poster__image" alt="Poster Image"
                 @click="showFsLightboxPoster = !showFsLightboxPoster">
-            <FsLightbox :toggler="showFsLightboxPoster" :sources="[film.poster]" />
+            <FsLightbox type="image" :types="[null, null, 'image']" :toggler="showFsLightboxPoster" :sources="[film.poster]" />
         </div>
         <div class="col-sm-12 col-md-8 mt-4">
             <h2 class="text-white text-center">{{ film.name }} ({{ film.film_year }})</h2>
