@@ -19,7 +19,7 @@
         <hr class="textcolor-light">
         <div class="row mt-5">
             <div class="col-12">
-                <h6 class="text-center textcolor-light">© {{ currentYear }} Cimax</h6>
+                <h6 class="text-center textcolor-light">{{ currentYear }} © Copyright: Cimax</h6>
             </div>
         </div>
     </footer>
