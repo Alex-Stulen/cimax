@@ -17,7 +17,7 @@ import Loading from '../utils/Loading/Loading.vue';
                 </div>
                 <div class="col-12" v-else v-for="film of getFilmsPageData.results">
                     <FilmPoster :film="film" :key="film.id"></FilmPoster>
-                    <hr class="text-white" style="margin-top: 75px; margin-bottom: 75px;">
+                    <hr class="text-white" style="margin-top: 25px; margin-bottom: 75px;">
                 </div>
                 <div class="col-12" v-if="!loading">
                     <Paginator :rows="pageSize" :totalRecords="getFilmsPageData.count"></Paginator>

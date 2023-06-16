@@ -6,20 +6,20 @@ import Loading from '../components/utils/Loading/Loading.vue';
 </script>
 
 <template>
-    <main class="container-fluid wrapper">
+    <div class="container-fluid wrapper">
         <Header></Header>
-        <section class="section__film mt-5">
-            <div class="d-flex w-100 justify-content-center" v-if="loading">
-                <Loading></Loading>
-            </div>
-            <div v-else class="container section__container p-5">
-                <FilmView :film="film"></FilmView>
-            </div>
-        </section>
-        <div class="container">
-            <Footer></Footer>
-        </div>
-    </main>
+        <main>
+            <section class="section__film mt-5">
+                <div class="d-flex w-100 justify-content-center" v-if="loading">
+                    <Loading></Loading>
+                </div>
+                <div v-else class="container section__container p-5">
+                    <FilmView :film="film"></FilmView>
+                </div>
+            </section>
+        </main>
+        <Footer></Footer>
+    </div>
 </template>
 
 <script>

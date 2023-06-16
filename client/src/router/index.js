@@ -18,6 +18,11 @@ const router = createRouter({
       component: () => import('../views/ViewFilmView.vue')
     },
     {
+      path: '/abuse',
+      name: 'abuse',
+      component: () => import ('../views/AbuseView.vue')
+    },
+    {
       path: '/403',
       name: '403',
       component: () => import('../views/errors/403View.vue')

@@ -5,15 +5,15 @@ import FilmPosterList from '../components/films/FilmPosterList.vue';
 </script>
 
 <template>
-  <main class="container-fluid wrapper">
-      <Header></Header>
-      <section class="section__films mt-5">
+  <div class="container-fluid wrapper">
+    <Header></Header>
+    <main>
+      <section class="section__films mt-5 mb-5">
         <FilmPosterList></FilmPosterList>
       </section>
-      <div class="container">
-        <Footer></Footer>
-      </div>
-  </main>
+    </main>
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>

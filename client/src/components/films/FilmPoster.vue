@@ -8,7 +8,8 @@ import VideoPlayer from "../plugins/videoPlayer/VideoPlayer.vue";
         <div class="col-sm-12 col-md-4">
             <img :src="film.poster" class="poster__image" alt="Poster Image"
                 @click="showFsLightboxPoster = !showFsLightboxPoster">
-            <FsLightbox type="image" :types="[null, null, 'image']" :toggler="showFsLightboxPoster" :sources="[film.poster]"/>
+            <FsLightbox type="image" :types="[null, null, 'image']" :toggler="showFsLightboxPoster"
+                :sources="[film.poster]" />
         </div>
         <div class="col-sm-12 col-md-8 mt-4">
             <h2 class="text-white text-center">{{ film.name }} ({{ film.film_year }})</h2>
@@ -23,11 +24,7 @@ import VideoPlayer from "../plugins/videoPlayer/VideoPlayer.vue";
             <hr class="text-white">
             <p class="text-white h4 mt-5">{{ film.description }}</p>
             <h5 class="text-white mt-5">Жанри:</h5>
-            <ul>
-                <li v-for="category of film.categories">
-                    <h6 class="text-white"><em>{{ category.name }}</em></h6>
-                </li>
-            </ul>
+            <p class="text-white" style="overflow-wrap: break-word;">{{ film_genres }}</p>
             <hr class="text-white">
             <h4 class="text-white mt-5">Трейлер:</h4>
             <div class="row">
@@ -49,6 +46,12 @@ import VideoPlayer from "../plugins/videoPlayer/VideoPlayer.vue";
                 </div>
             </div>
         </div>
+        <div class="row mt-3">
+            <div class="col-12 text-end">
+                <p class="textcolor-light" style="padding-right: 2px;">Додано: {{ film.created_at }}</p>
+                <RouterLink to="/abuse" class="button button-outline-dark" style="font-size: 12px; letter-spacing: 1.5px;">Для правовласника<i class="fa-solid fa-flag" style="font-size: 14px; color: rgba(255, 0, 0, 0.4); margin-left: 7px;"></i></RouterLink>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -61,6 +64,15 @@ export default {
     data() {
         return {
             showFsLightboxPoster: false,
+        }
+    },
+    computed: {
+        film_genres(){
+            let categories = []
+            this.film.categories.forEach(category => {
+                categories.push(category.name)
+            })
+            return categories.join(' | ')
         }
     },
     components: {

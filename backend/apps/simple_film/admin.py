@@ -33,3 +33,15 @@ class FilmAdmin(admin.ModelAdmin):
     list_filter = ('categories', 'film_year', 'config__is_published')
     search_fields = ('pk', 'name', 'original_name', 'film_year')
     readonly_fields = ('created_at', 'updated_at')
+
+
+@admin.register(models.FilmImage)
+class FilmImageAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'film__name')
+    list_display_links = ('pk', 'film__name')
+    search_fields = ('pk', 'film__name')
+    readonly_fields = ('created_at', 'updated_at')
+
+    @staticmethod
+    def film__name(film_image: models.FilmImage):
+        return film_image.film.name

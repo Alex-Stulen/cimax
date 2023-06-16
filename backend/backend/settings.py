@@ -172,7 +172,7 @@ LANGUAGES = (
     ("uk", "Ukrainian"),
 )
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "EET"
 
 USE_I18N = True
 

@@ -15,9 +15,16 @@ class FilmConfigSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class FilmImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.FilmImage
+        fields = '__all__'
+
+
 class FilmSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True)
     config = FilmConfigSerializer()
+    images = FilmImageSerializer(source='film_images_set.all', many=True, read_only=True)
 
     class Meta:
         model = models.Film

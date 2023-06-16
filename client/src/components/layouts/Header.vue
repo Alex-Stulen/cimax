@@ -3,12 +3,12 @@ import Search from '../films/Search.vue';
 </script>
 
 <template>
-    <nav class="container-fluid d-flex justify-content-center">
+    <nav class="container-fluid d-flex justify-content-center" id="header">
         <div class="row w-100">
             <div class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                <RouterLink class="navbar-brand" to="/">
+                <a class="navbar-brand" href="/">
                     <img src="@/assets/images/logo.png" alt="Logo Image" class="logo">
-                </RouterLink>
+                </a>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-5 d-flex justify-content-center align-items-center">
                 <h1 class="text-white text-center">Cimax - твій онлайн кінотеатр</h1>

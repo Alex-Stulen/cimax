@@ -1,0 +1,24 @@
+@import './colors.scss';
+
+.button {
+    text-decoration: none;
+    padding: 15px 25px;
+}
+
+.button-outline-dark {
+    border-radius: 0px;
+    border: 2px solid rgba($color: #343434, $alpha: 1.0);
+    color: #cecece;
+    transition: 0.2s ease all;
+
+    &:hover{
+        border: 2px solid rgba($color: #444444, $alpha: 1.0);
+        background-color: rgba($color: #444444, $alpha: .3);
+    }
+
+}
+
+
+.textcolor-light {
+    color: $light;
+}
