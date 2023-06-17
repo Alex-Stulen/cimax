@@ -41,6 +41,7 @@ import { EffectCoverflow, Navigation } from "swiper";
         <div class="col-sm-12 col-md-8 mt-4">
             <h2 class="text-white text-center">{{ film.name }} ({{ film.film_year }})</h2>
             <h5 class="text-white text-center" style="opacity: 0.75;"><i>{{ film.original_name }}</i></h5>
+            <div class="d-flex w-100 justify-content-end align-items-center"><i class="fa-solid fa-eye textcolor-light" title="Кількість переглядів"></i> <span class="textcolor-light" style="margin-left: 5px;">{{ film.film_view_count }}</span></div>
             <hr class="text-white">
             <p class="text-white h4 mt-5">{{ film.description }}</p>
             <h5 class="text-white mt-5">Жанри:</h5>

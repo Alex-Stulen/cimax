@@ -1,5 +1,3 @@
-import os
-
 from django.db import models
 
 
@@ -106,3 +104,19 @@ class FilmImage(models.Model):
 
     def __str__(self):
         return self.film.name
+
+
+class FilmRetrieveView(models.Model):
+    film = models.ForeignKey(
+        Film,
+        on_delete=models.CASCADE,
+        related_name='film_retrieve_view_set'
+    )
+
+    ip_address = models.GenericIPAddressField()
+    ip_info = models.JSONField(default=dict)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('-created_at', )

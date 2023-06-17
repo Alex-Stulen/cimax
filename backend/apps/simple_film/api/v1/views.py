@@ -21,3 +21,18 @@ class FilmReadOnlyModelViewSet(ReadOnlyModelViewSet):
     pagination_class = FilmPagination
     filter_backends = [filters.SearchFilter]
     search_fields = ['name', 'original_name', 'film_year']
+
+    film_retrieve_view_serializer = serializers.FilmRetrieveViewSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            # process film request view (created new instance of special FilmRetrieveView model if it can be done)
+            # not throws errors if can`t write film view instance
+            self.film_retrieve_view_serializer.process_film_view(
+                request=request,
+                film_id=kwargs.get('pk')
+            )
+        except Exception:
+            pass
+
+        return super().retrieve(request, *args, **kwargs)
