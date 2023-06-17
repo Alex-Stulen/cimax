@@ -1,18 +1,17 @@
 <template>
     <footer class="container-fluid mt-3">
         <div class="row pt-5">
-            <div class="col-4 text-center">
+            <div class="col-sm-12 col-md-4 text-center">
                 <a href="#header" class="textcolor-light h5">Пошук</a>
             </div>
-            <div class="col-4 text-center">
+            <div class="col-sm-12 col-md-4 text-center">
                 <RouterLink to="/abuse" class="textcolor-light h5">Для правовласників</RouterLink>
             </div>
-            <div class="col-4 text-center">
+            <div class="col-sm-12 col-md-4 text-center">
                 <div>
                     <h5 class="textcolor-light">Контакти</h5>
                     <span class="textcolor-light">Email: <a href="mailto:cimax.space.contact@gmail.com"
                             target="_blank" style="color: bisque;">cimax.space.contact@gmail.com</a></span>
-
                 </div>
             </div>
         </div>
