@@ -53,7 +53,17 @@ class FilmImageAdmin(admin.ModelAdmin):
 
 @admin.register(models.FilmRetrieveView)
 class FilmRetrieveViewAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'film', 'ip_address', 'ip_info', 'created_at', 'updated_at')
+    list_display = ('pk', 'film', 'ip_address', 'short_ip_info', 'created_at', 'updated_at')
     list_display_links = ('pk', 'film', 'ip_address')
     search_fields = ('pk', 'film__name', 'film__original_name', 'ip_address')
     readonly_fields = ('created_at', 'updated_at')
+
+    @staticmethod
+    def short_ip_info(film_retrieve_view: models.FilmRetrieveView):
+        ip_info = film_retrieve_view.ip_info
+        return {
+            'country': ip_info.get('country', 'unknown'),
+            'region': ip_info.get('region', 'unknown'),
+            'city': ip_info.get('city', 'unknown'),
+            'timezone': ip_info.get('timezone', 'unknown'),
+        }
