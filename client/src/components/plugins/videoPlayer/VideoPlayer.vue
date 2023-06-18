@@ -19,10 +19,29 @@ export default {
   },
   data() {
     return {
-      player: null
+      player: null,
+      spaceTo: 'pause',
+      defaultOptions: {
+        autoplay: false,
+        userActions: {
+          hotkeys: true
+        },
+        controlBar: {
+          skipButtons: {
+            forward: 5,
+            backward: 5,
+          }
+        },
+        playbackRates: [0.5, 1, 1.5, 2],
+        controls: true,
+        fluid: true,
+      }
     }
   },
   methods: {
+    getOptions() {
+      return { ...this.options, ...this.defaultOptions }
+    },
     initPlayer(options) {
       if (this.player) {
         this.player.dispose();
@@ -31,18 +50,18 @@ export default {
       if (this.$refs.videoPlayer) {
         this.player = videojs(this.$refs.videoPlayer, options);
       }
-    }
+    },
   },
   mounted() {
     this.$nextTick(() => {
-      this.initPlayer(this.options);
+      this.initPlayer(this.getOptions());
     });
   },
   updated() {
     this.$nextTick(() => {
       if (!this.player && this.$refs.videoPlayer) {
-      this.initPlayer(this.options);
-    }
+        this.initPlayer(this.getOptions());
+      }
     });
   },
   beforeDestroy() {

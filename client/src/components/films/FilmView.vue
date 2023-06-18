@@ -18,8 +18,8 @@ import { EffectCoverflow, Navigation } from "swiper";
         <div class="col-sm-12 col-md-4">
             <img :src="film.poster" class="poster__image" alt="Poster Image"
                 @click="openFilmImagesLightbox([film.poster], 1)">
-            <FsLightbox :key="'Lightbox'" :ref="'Lightbox'" :slide="lightboxSlide" type="image" :types="[null, null, 'image']"
-                :toggler="lightboxToggler" :sources="lightboxSources" />
+            <FsLightbox :key="'Lightbox'" :ref="'Lightbox'" :slide="lightboxSlide" type="image"
+                :types="[null, null, 'image']" :toggler="lightboxToggler" :sources="lightboxSources" />
 
             <div v-if="film.images.length > 0">
                 <swiper :key="film.id" :effect="'coverflow'" :navigation="true" :grabCursor="true" :centeredSlides="true"
@@ -32,7 +32,8 @@ import { EffectCoverflow, Navigation } from "swiper";
                     }" :pagination="true" :modules="filmImageSwiperModules">
 
                     <swiper-slide v-for="(file_image, index) in film.images" :key="index">
-                        <img :src="file_image.image" alt="Film image" @click="openFilmImagesLightbox(film.images.map(image => image.image), index + 1)" />
+                        <img :src="file_image.image" alt="Film image"
+                            @click="openFilmImagesLightbox(film.images.map(image => image.image), index + 1)" />
                     </swiper-slide>
                 </swiper>
             </div>
@@ -41,16 +42,18 @@ import { EffectCoverflow, Navigation } from "swiper";
         <div class="col-sm-12 col-md-8 mt-4">
             <h2 class="text-white text-center">{{ film.name }} ({{ film.film_year }})</h2>
             <h5 class="text-white text-center" style="opacity: 0.75;"><i>{{ film.original_name }}</i></h5>
-            <div class="d-flex w-100 justify-content-end align-items-center"><i class="fa-solid fa-eye textcolor-light" title="Кількість переглядів"></i> <span class="textcolor-light" style="margin-left: 5px;">{{ film.film_view_count }}</span></div>
+            <div class="d-flex w-100 justify-content-end align-items-center"><i class="fa-solid fa-eye textcolor-light"
+                    title="Кількість переглядів"></i> <span class="textcolor-light" style="margin-left: 5px;">{{
+                        film.film_view_count }}</span></div>
             <hr class="text-white">
             <p class="text-white h4 mt-5">{{ film.description }}</p>
             <h5 class="text-white mt-5">Жанри:</h5>
             <p class="text-white" style="overflow-wrap: break-word;">{{ film_genres }}</p>
             <h4 class="text-white mt-5">Трейлер:</h4>
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="col-sm-12 col-md-6">
                     <div>
-                        <VideoPlayer :key="film.id" :options="{
+                        <VideoPlayer :key="'trailerPlayer'" :options="{
                             autoplay: false,
                             liveui: true,
                             userActions: {
@@ -69,14 +72,7 @@ import { EffectCoverflow, Navigation } from "swiper";
         <div class="col-sm-12 mt-5">
             <h4 class="text-white">Плеєр</h4>
             <div>
-                <VideoPlayer :key="film.id" :options="{
-                    autoplay: false,
-                    liveui: true,
-                    userActions: {
-                        hotkeys: true
-                    },
-                    controls: true,
-                    fluid: true,
+                <VideoPlayer :key="'filmPlayer'" :options="{
                     sources: [
                         { src: film.film, type: 'video/mp4' },
                     ]

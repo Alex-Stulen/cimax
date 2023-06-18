@@ -12,7 +12,7 @@ import "primevue/resources/primevue.min.css";
 import 'primeicons/primeicons.css';
 
 
-import "video.js/dist/video-js.css"
+import "video.js/dist/video-js.css";
 
 const app = createApp(App)
 
