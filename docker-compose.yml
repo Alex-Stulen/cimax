@@ -46,6 +46,7 @@ services:
       - ./backend/deploy/nginx/cimax_backend.conf:/etc/nginx/conf.d/cimax_backend.conf
       - ./backend/static/:/var/www/backend/static/
       - ./backend/media/:/var/www/backend/media/
+      - ./backend/robots.txt:/var/www/backend_seo/robots.txt
     ports:
       - "5051:80"
     depends_on:
@@ -59,6 +60,7 @@ services:
     volumes:
       - ./client/deploy/nginx/cimax_client.conf:/etc/nginx/conf.d/cimax_client.conf
       - ./client/dist/:/var/www/client/
+      - ./client/robots.txt:/var/www/client_seo/robots.txt
     ports:
       - "3000:80"
     depends_on:

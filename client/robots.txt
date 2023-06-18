@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /assets
+Allow: /
+
+User-agent: Googlebot
+Disallow: /assets
+Allow: /
+
+User-Agent: YandexBot
+Disallow: /
+
+Host: https://cimax.space
