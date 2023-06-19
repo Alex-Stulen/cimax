@@ -35,6 +35,7 @@ export default {
         playbackRates: [0.5, 1, 1.5, 2],
         controls: true,
         fluid: true,
+        responsive: true
       }
     }
   },
